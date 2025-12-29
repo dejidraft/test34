@@ -1,130 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About | Method-of-Mind</title>
-  <meta name="description" content="About Method of Mind — a psychology study toolkit built for clarity and application." />
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>About - Method of Mind - Psychology Learning Platform</title>
+    <meta name="description" content="About Method of Mind — a psychology study toolkit built for clarity and application." />
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1B365D", // Academic Navy Blue
+                        "primary-light": "#2C4A7C", // Lighter Navy for hover
+                        "background-light": "#FDFBF7", // Cream / Bone White
+                        "background-dark": "#0F172A", // Slate 900
+                        secondary: {
+                            lavender: "#E0D8EA",
+                            coral: "#F2D7D5",
+                        }
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        serif: ["Lora", "serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'soft-hover': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.01)',
+                    }
+                },
+            },
+        };
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* FAQ Accordion Styles */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary .chevron {
+            transform: rotate(180deg);
+        }
+        .chevron {
+            transition: transform 0.3s ease;
+        }
+    </style>
 </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-sans min-h-screen flex flex-col transition-colors duration-300">
 
-<body>
+    <!-- Header -->
+    <header class="w-full border-b border-slate-200/60 dark:border-slate-800/60 sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-sm">
+        <nav class="max-w-[1000px] mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand -->
+            <a class="flex items-center gap-2 group" href="index.html">
+                <img class="brand-logo h-8 w-8 group-hover:scale-110 transition-transform duration-300" src="logo.svg" alt="Method of Mind logo">
+                <span class="text-xl font-bold tracking-tight text-primary dark:text-blue-100 font-serif">Method of Mind</span>
+            </a>
 
- <header class="site-header">
-  <div class="nav-inner">
-    <a class="brand" href="index.html">
-      <img class="brand-logo" src="logo.svg" alt="Method of Mind logo">
-      <span class="brand-text">Method-of-Mind</span>
-    </a>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-blue-200 transition-colors" href="topics.html">Topics</a>
+                <a class="text-sm font-medium text-primary dark:text-blue-300 hover:text-primary dark:hover:text-blue-200 transition-colors" href="about.html">About</a>
+                <a class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-blue-200 transition-colors" href="#">Resources</a>
+            </div>
 
-    <nav class="nav" aria-label="Primary">
-      <a href="topics.html">Topics</a>
-      <a href="about.html">About</a>
-      <a class="pill" href="request-topic.html">Request Topic</a>
-      <a href="account.html">Account</a>
-    </nav>
-  </div>
-</header>
+            <!-- Desktop Actions -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a class="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-blue-200 transition-colors" href="account.html">
+                    <span class="material-icons-outlined text-[20px]">account_circle</span>
+                    <span>Account</span>
+                </a>
+                <a class="bg-primary hover:bg-primary-light text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all shadow-sm hover:shadow-md active:scale-95" href="request-topic.html">
+                    Request Topic
+                </a>
+            </div>
 
-  
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-slate-600 dark:text-slate-300 hover:text-primary transition">
+                <span class="material-icons-outlined text-3xl">menu</span>
+            </button>
+        </nav>
+    </header>
 
-<main>
-   <h1>About Method-of-Mind</h1>
-    <p class="lead">
-      Method-of-Mind is a student-friendly psychology study toolkit built around clear explanations,
-      exam-ready organization, and practical examples—designed by a real student, not auto-generated.
-    </p>
+    <!-- Main Content -->
+    <main class="flex-grow w-full max-w-[1000px] mx-auto px-6 py-12 md:py-20">
 
-    <section class="card">
-      <h2>What you’ll find here</h2>
-      <p>
-        Short concept guides, mini practice prompts, and clean “method-first” breakdowns that help you
-        understand how psychology works (and how to write about it).
-      </p>
-    </section>
+        <!-- Page Header -->
+        <section class="text-center mb-16 max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-serif font-semibold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
+                Mastering Psychology through Structure
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-light">
+                A learning platform designed for the undergraduate mind, prioritizing clarity, academic rigor, and focus.
+            </p>
+        </section>
 
-    <br></br>
-  
-    <section class="card">
-      <h2>Design philosophy</h2>
-      <ul>
-        <li>Simple language first, then technical terms</li>
-        <li>Definitions + examples + “how to use it” in essays/tests</li>
-        <li>Skimmable layouts made for tired students</li>
-      </ul>
-    </section>
+        <!-- Feature Cards Section -->
+        <section class="flex flex-col gap-8 mb-16">
 
-  <section>
-    <h2>What this is</h2>
-    <p>
-      Method-of-Mind is a psychology study toolkit designed to help students
-      understand concepts clearly, apply them correctly, and study with structure.
-    </p>
-    <p>
-      This project focuses on course-agnostic psychology foundations — the ideas
-      that show up again and again across exams, essays, and research discussions.
-    </p>
-  </section>
+            <!-- Card 1: What is Method of Mind? -->
+            <article class="group relative overflow-hidden rounded-2xl bg-white dark:bg-slate-800 shadow-soft border border-slate-100 dark:border-slate-700">
+                <div class="grid md:grid-cols-2 h-full">
+                    <div class="h-64 md:h-auto bg-cover bg-center relative" style='background-image: url("https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1200");'>
+                        <div class="absolute inset-0 bg-primary/20 dark:bg-primary/40"></div>
+                    </div>
+                    <div class="p-8 md:p-10 flex flex-col justify-center gap-4">
+                        <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+                            <span class="material-icons-outlined text-2xl">lightbulb</span>
+                        </div>
+                        <h3 class="text-slate-900 dark:text-white text-2xl font-bold tracking-tight font-serif">What is Method of Mind?</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                            We simplify complex psychological theories into clear, digestible structures. By stripping away unnecessary noise, we help you focus on the core concepts required for academic success and deep understanding.
+                        </p>
+                        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                            Short concept guides, mini practice prompts, and clean "method-first" breakdowns that help you understand how psychology works and how to write about it.
+                        </p>
+                    </div>
+                </div>
+            </article>
 
-  <section>
-    <h2>Why it exists</h2>
-    <p>
-      Many psychology resources explain <em>what</em> a concept is, but not
-      <em>how</em> to use it. Method of Mind is built to bridge that gap.
-    </p>
-    <ul>
-      <li>Clear definitions in plain language</li>
-      <li>Examples that mirror exam questions</li>
-      <li>Common confusions called out explicitly</li>
-      <li>Practice prompts that force application</li>
-    </ul>
-  </section>
+            <!-- Card 2: Who It's For -->
+            <article class="group relative overflow-hidden rounded-2xl bg-white dark:bg-slate-800 shadow-soft border border-slate-100 dark:border-slate-700">
+                <div class="grid md:grid-cols-2 h-full">
+                    <div class="md:order-2 h-64 md:h-auto bg-cover bg-center relative" style='background-image: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200");'>
+                        <div class="absolute inset-0 bg-primary/20 dark:bg-primary/40"></div>
+                    </div>
+                    <div class="md:order-1 p-8 md:p-10 flex flex-col justify-center gap-4">
+                        <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+                            <span class="material-icons-outlined text-2xl">school</span>
+                        </div>
+                        <h3 class="text-slate-900 dark:text-white text-2xl font-bold tracking-tight font-serif">Who It's For</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                            Designed specifically for undergraduate students, exam revisionists, and lifelong learners who value depth and precision. If you seek a distraction-free environment to master your material, this is your home.
+                        </p>
+                        <ul class="text-slate-600 dark:text-slate-300 text-base leading-relaxed list-disc list-inside space-y-2">
+                            <li>Introductory psychology students</li>
+                            <li>Research methods and statistics learners</li>
+                            <li>Biopsychology / physiological psychology students</li>
+                            <li>Personality psychology enthusiasts</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
 
-  <section>
-    <h2>How to use it</h2>
-    <ol>
-      <li>Start with a topic overview.</li>
-      <li>Read the key concepts and examples.</li>
-      <li>Answer the practice questions <strong>before</strong> checking explanations.</li>
-      <li>Use the study sheets to review.</li>
-    </ol>
-  </section>
+            <!-- Card 3: Our Learning Approach -->
+            <article class="group relative overflow-hidden rounded-2xl bg-white dark:bg-slate-800 shadow-soft border border-slate-100 dark:border-slate-700">
+                <div class="grid md:grid-cols-2 h-full">
+                    <div class="h-64 md:h-auto bg-cover bg-center relative" style='background-image: url("https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1200");'>
+                        <div class="absolute inset-0 bg-primary/20 dark:bg-primary/40"></div>
+                    </div>
+                    <div class="p-8 md:p-10 flex flex-col justify-center gap-4">
+                        <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+                            <span class="material-icons-outlined text-2xl">menu_book</span>
+                        </div>
+                        <h3 class="text-slate-900 dark:text-white text-2xl font-bold tracking-tight font-serif">Our Learning Approach</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                            We believe in text-forward, thoughtful learning. No gamification, no loud noises—just well-researched content presented with comfortable line lengths and academic rigor for sustained attention.
+                        </p>
+                        <ul class="text-slate-600 dark:text-slate-300 text-base leading-relaxed list-disc list-inside space-y-2">
+                            <li>Simple language first, then technical terms</li>
+                            <li>Definitions + examples + "how to use it" in essays/tests</li>
+                            <li>Skimmable layouts made for tired students</li>
+                            <li>Common confusions called out explicitly</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
 
-  <section>
-    <h2>Who this is for</h2>
-    <p>
-      Method-of-Mind is designed for undergraduate psychology students, especially
-      those studying:
-    </p>
-    <ul>
-      <li>Introductory psychology</li>
-      <li>Research methods and statistics</li>
-      <li>Biopsychology / physiological psychology</li>
-      <li>Personality psychology</li>
-    </ul>
-    <p>
-      It’s also useful for anyone who wants a structured way to revisit core
-      psychology concepts.
-    </p>
-  </section>
-</main>
+        </section>
 
-<footer>
-  <p>© 2025 Method-of-Mind</p>
-</footer>
+        <!-- Design Philosophy Section -->
+        <section class="mb-16 bg-white dark:bg-slate-800 rounded-2xl p-8 md:p-10 shadow-soft border border-slate-100 dark:border-slate-700">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="material-icons-outlined text-primary text-3xl">palette</span>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight font-serif">Design Philosophy</h2>
+            </div>
+            <div class="prose prose-lg max-w-none">
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                    Many psychology resources explain <em>what</em> a concept is, but not <em>how</em> to use it. Method of Mind is built to bridge that gap.
+                </p>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-6 mb-3">How to use it</h3>
+                <ol class="text-slate-600 dark:text-slate-300 leading-relaxed space-y-2 list-decimal list-inside">
+                    <li>Start with a topic overview</li>
+                    <li>Read the key concepts and examples</li>
+                    <li>Answer the practice questions <strong>before</strong> checking explanations</li>
+                    <li>Use the study sheets to review</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="mt-16">
+            <div class="flex flex-col gap-6">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="material-icons-outlined text-primary text-3xl">help_outline</span>
+                    <h2 class="text-3xl font-bold text-slate-900 dark:text-white tracking-tight font-serif">Frequently Asked Questions</h2>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <!-- FAQ Item 1 -->
+                    <details class="group bg-white dark:bg-slate-800 rounded-xl shadow-soft border border-slate-200 dark:border-slate-700 overflow-hidden">
+                        <summary class="flex justify-between items-center p-6 cursor-pointer select-none hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Is this content suitable for AP Psychology?</h4>
+                            <span class="material-icons-outlined text-primary chevron">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-600 dark:text-slate-300 leading-relaxed">
+                            <p>Yes. While our material is designed with the undergraduate curriculum in mind, the foundational theories and structural approach are highly effective for AP Psychology students seeking a deeper, more organized understanding of the subject matter.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ Item 2 -->
+                    <details class="group bg-white dark:bg-slate-800 rounded-xl shadow-soft border border-slate-200 dark:border-slate-700 overflow-hidden">
+                        <summary class="flex justify-between items-center p-6 cursor-pointer select-none hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">How is the curriculum structured?</h4>
+                            <span class="material-icons-outlined text-primary chevron">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-600 dark:text-slate-300 leading-relaxed">
+                            <p>Our curriculum follows a linear, module-based progression. We start with historical foundations and research methods before moving into biological bases of behavior, sensation, perception, and higher-order cognitive processes. Each module is self-contained yet builds upon the last.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ Item 3 -->
+                    <details class="group bg-white dark:bg-slate-800 rounded-xl shadow-soft border border-slate-200 dark:border-slate-700 overflow-hidden">
+                        <summary class="flex justify-between items-center p-6 cursor-pointer select-none hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Can I access this on mobile?</h4>
+                            <span class="material-icons-outlined text-primary chevron">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-600 dark:text-slate-300 leading-relaxed">
+                            <p>Absolutely. Method of Mind is fully responsive. We understand that students learn on the go, so our text-forward design adapts perfectly to tablets and mobile phones without losing clarity or readability.</p>
+                        </div>
+                    </details>
+
+                    <!-- FAQ Item 4 -->
+                    <details class="group bg-white dark:bg-slate-800 rounded-xl shadow-soft border border-slate-200 dark:border-slate-700 overflow-hidden">
+                        <summary class="flex justify-between items-center p-6 cursor-pointer select-none hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">What makes Method of Mind different from other resources?</h4>
+                            <span class="material-icons-outlined text-primary chevron">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-slate-600 dark:text-slate-300 leading-relaxed">
+                            <p>Method of Mind is student-friendly and built around clear explanations, exam-ready organization, and practical examples. We focus on teaching you not just what concepts mean, but how to apply them in essays, exams, and research discussions. No auto-generated content—just thoughtful, structured learning designed by real students for real students.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark py-12 mt-16">
+        <div class="max-w-[1000px] mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <a class="flex items-center justify-center md:justify-start gap-2 group mb-2" href="index.html">
+                        <img class="brand-logo h-5 w-5" src="logo.svg" alt="Method of Mind logo">
+                        <span class="text-lg font-bold tracking-tight text-primary dark:text-blue-100 font-serif">Method of Mind</span>
+                    </a>
+                    <p class="text-sm text-slate-500 dark:text-slate-500">
+                        Academic Psychology Resources © <span id="year"></span>
+                    </p>
+                </div>
+                <div class="flex gap-6 text-sm text-slate-500 dark:text-slate-400">
+                    <a class="hover:text-primary dark:hover:text-blue-300 transition-colors" href="#">Privacy</a>
+                    <a class="hover:text-primary dark:hover:text-blue-300 transition-colors" href="#">Terms</a>
+                    <a class="hover:text-primary dark:hover:text-blue-300 transition-colors" href="#">Contact</a>
+                    <a class="hover:text-primary dark:hover:text-blue-300 transition-colors" href="#">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
