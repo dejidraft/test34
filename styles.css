@@ -1,118 +1,222 @@
-/* ====== THEME VARIABLES ====== */
-:root {
-  --bg: #f8f4ef;            /* cream background */
-  --surface: #ffffff;      /* card background */
+/* =========================
+   Method of Mind — styles.css
+   Cream + Navy academic card layout
+   ========================= */
+
+:root{
+  /* Brand palette */
+  --bg: #f8f4ef;           /* cream */
+  --surface: #ffffff;      /* card */
   --text: #2f2f2f;
-  --muted: #6b6b6b;
+  --muted: #5f6368;
   --border: #e5e0d8;
+
   --accent: #4d6299;       /* navy */
   --accent-soft: #cbcdf2;  /* lavender */
+  --accent-warm: #e2725b;  /* coral (optional highlight) */
 
-  --radius: 14px;
-  --shadow: 0 8px 24px rgba(0,0,0,0.06);
-
-  --content-width: 900px;
+  /* Layout + effects */
+  --content-width: 980px;
+  --radius: 18px;
+  --shadow: 0 12px 30px rgba(0,0,0,0.10);
+  --shadow-soft: 0 8px 24px rgba(0,0,0,0.07);
 }
 
-/* ====== BASE ====== */
-* { box-sizing: border-box; }
+/* Base reset */
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
 
-body {
+body{
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: var(--bg);
   color: var(--text);
   line-height: 1.65;
+  background:
+    radial-gradient(900px 520px at 12% 6%, rgba(203,205,242,0.55), transparent 58%),
+    radial-gradient(760px 520px at 88% 12%, rgba(77,98,153,0.16), transparent 60%),
+    linear-gradient(180deg, var(--bg), #f3efe9);
 }
 
-/* ====== LAYOUT ====== */
-header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
+/* =========================
+   Header / Nav
+   ========================= */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(248,244,239,0.78);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(229,224,216,0.9);
 }
 
-nav {
+.site-header .inner{
   max-width: var(--content-width);
   margin: 0 auto;
   padding: 14px 20px;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 16px;
 }
 
-nav a {
+.brand{
   text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 999px;
-}
-
-nav a:hover {
-  background: rgba(77, 98, 153, 0.08);
+  font-weight: 800;
+  letter-spacing: -0.01em;
   color: var(--accent);
 }
 
-/* ====== MAIN CONTENT ====== */
-main {
+.nav{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav a{
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 650;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.nav a:hover{
+  background: rgba(77,98,153,0.08);
+  color: var(--accent);
+  border-color: rgba(77,98,153,0.18);
+}
+
+.nav a[aria-current="page"]{
+  background: rgba(77,98,153,0.12);
+  color: var(--accent);
+  border-color: rgba(77,98,153,0.25);
+}
+
+/* =========================
+   Main content
+   ========================= */
+main{
   max-width: var(--content-width);
-  margin: 40px auto;
+  margin: 26px auto 64px;
   padding: 0 20px;
 }
 
-/* ====== TYPOGRAPHY ====== */
-h1 {
-  font-size: 2.2rem;
-  margin-top: 0;
+h1{
+  font-size: clamp(1.8rem, 2.6vw, 2.35rem);
+  margin: 0 0 8px;
   letter-spacing: -0.02em;
 }
 
-h2 {
-  margin-top: 2.5rem;
-  font-size: 1.4rem;
+.lead{
+  margin: 0 0 18px;
+  color: var(--muted);
+  max-width: 72ch;
+}
+
+/* Section headings inside pages */
+.section-title{
+  margin: 26px 0 10px;
+  font-size: 1.15rem;
   color: var(--accent);
 }
 
-p {
+/* =========================
+   Card system (works for <a> or <section>)
+   ========================= */
+.card{
+  background: linear-gradient(180deg, #ffffff, rgba(255,255,255,0.92));
+  border: 1px solid rgba(229,224,216,0.95);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 18px 18px 16px;
+}
+
+/* Make <a class="card"> behave like a clickable card */
+a.card{
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+a.card:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: rgba(77,98,153,0.30);
+}
+
+a.card:focus{
+  outline: 3px solid rgba(203,205,242,0.8);
+  outline-offset: 3px;
+}
+
+/* Card typography */
+.card h3{
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.card p{
+  margin: 0 0 10px;
+  color: var(--muted);
   max-width: 70ch;
 }
 
-.lead {
-  font-size: 1.05rem;
-  color: var(--muted);
+.card-cta{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 750;
+  color: var(--accent);
 }
 
-/* ====== CARD SYSTEM ====== */
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  margin: 24px 0;
-  box-shadow: var(--shadow);
+/* Optional “badge” style for difficulty/labels */
+.badge{
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(203,205,242,0.55);
+  color: #1e2a52;
+  border: 1px solid rgba(77,98,153,0.22);
 }
 
-.card h2:first-child {
-  margin-top: 0;
-}
-
-/* ====== GRID FOR TOPICS ====== */
-.grid {
+/* =========================
+   Cards grid for Topics page / Home sections
+   ========================= */
+.cards{
   display: grid;
-  gap: 20px;
+  gap: 16px;
+  margin-top: 14px;
 }
 
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+@media (min-width: 720px){
+  .cards{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 980px){
+  .cards{ grid-template-columns: repeat(3, 1fr); }
 }
 
-/* ====== FOOTER ====== */
-footer {
-  margin-top: 60px;
-  padding: 24px;
+/* =========================
+   Footer
+   ========================= */
+footer{
+  margin-top: 64px;
+  padding: 26px 20px;
   text-align: center;
   color: var(--muted);
-  border-top: 1px solid var(--border);
-  background: var(--surface);
+  border-top: 1px solid rgba(229,224,216,0.9);
+  background: rgba(255,255,255,0.55);
+}
+
+/* =========================
+   Small utility helpers
+   ========================= */
+.hr{
+  height: 1px;
+  background: rgba(229,224,216,0.95);
+  border: 0;
+  margin: 22px 0;
 }
