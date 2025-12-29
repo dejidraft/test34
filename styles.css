@@ -51,7 +51,6 @@ body{
   display: inline-block;
   padding: 10px 14px;
   border-radius: 12px;
-  border: 1px solid rgba(77, 98, 153, 0.25);
   background: rgba(77, 98, 153, 0.12);
   color: var(--accent);
   text-decoration: none;
@@ -290,6 +289,7 @@ footer{
   border: 0;
   margin: 22px 0;
 }
+
 
 
 
