@@ -38,11 +38,6 @@ body{
 /* =========================
    Buttons
    ========================= */
-.button .btn{
-   background: white;
-   color: #4d6299;
-   border: 3px solid #4d6299;
-}
 
 .nav-btn{
   background: rgba(77, 98, 153, 0.12);
@@ -256,6 +251,7 @@ footer{
   border: 0;
   margin: 22px 0;
 }
+
 
 
 
