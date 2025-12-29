@@ -29,9 +29,9 @@ html, body{ height: 100%; }
 body{
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--text);
+  olor: var(--text);
   line-height: 1.65;
-  background: #f8f4ef;
+  background: var(--bg);
 }
 
 
@@ -290,6 +290,7 @@ footer{
   border: 0;
   margin: 22px 0;
 }
+
 
 
 
